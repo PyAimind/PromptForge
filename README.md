@@ -2,7 +2,10 @@
 
 **Muscular Prompt Engineering: Building Reliable AI Systems Through Structured Collaboration**
 
-In environments where access to powerful AI models is limited by cost, internet instability, and sanctions, simply prompting a single model is rarely enough to produce reliable, high-quality software. This article presents **Muscular Prompt Engineering**, a structured methodology I developed to transform unstructured AI interactions into a disciplined, team-like development process.
+In environments where access to powerful AI models is limited by cost, internet instability, and sanctions, simply prompting a single model is rarely enough to produce reliable, high-quality software. This repository documents **Muscular Prompt Engineering**, a structured methodology I developed to transform unstructured AI interactions into a disciplined, team-like development process.
+
+📘 **[Read the full methodology →](docs/methodology.md)**
+🧪 **[See real prompts used in production →](docs/examples.md)**
 
 ## The Core Problem with Unstructured AI Usage
 
@@ -11,7 +14,7 @@ Most developers interact with large language models in a linear and unstructured
 - Code quality gradually degrades because there is no systematic review process.
 - Models frequently produce logical bugs, inconsistent naming, and hallucinations.
 - In larger projects, small structural mistakes can cascade into major issues that are expensive and time-consuming to fix.
-- The quality of prompts depends heavily on the individual’s experience, leading to high variability in output.
+- The quality of prompts depends heavily on the individual's experience, leading to high variability in output.
 - Assigning an entire project to a single model significantly increases the risk of hallucination and the use of non-existent libraries or functions.
 
 These issues become even more critical in resource-constrained environments, where relying on one model creates dangerous single points of failure.
@@ -28,27 +31,19 @@ My first attempts at building complex projects with AI failed. Despite using mul
 
 The methodology is built on the principle that AI agents should function as specialized team members with clear responsibilities, strict contracts, and controlled interactions — rather than as a single powerful but unpredictable tool.
 
-## Core Principles of Muscular Prompt Engineering
-
-The methodology is guided by several key principles:
-
-- **Absolute Clarity in Prompts**: Every prompt must function like a precise instruction manual. Ambiguity is not allowed.
-- **Strict Size and Complexity Limits**: Functions should not exceed 30 lines, and files should generally stay under 200 lines to maintain readability and maintainability.
-- **Consistent Naming**: All files, folders, functions, and variables must follow consistent naming conventions across the entire project.
-- **Incremental and Accumulative Testing**: Every new module must be tested together with all previously built modules.
-- **Error Recovery Without Structural Change**: When fixing errors, the core architecture must remain unchanged unless explicitly approved.
-- **Hallucination Control**: Prompts must explicitly restrict the use of libraries and functions to only those listed, significantly reducing hallucinations.
-- **Phase-Based Development**: Projects are broken into clear phases with defined entry and exit criteria. No phase is considered complete until all tests pass at 100%.
-
 > **"A prompt is not a suggestion. It is a contract between the human and the AI."**
 
-These rules create a controlled environment where AI agents can collaborate effectively while minimizing common failure modes.
+The full set of roles, the step-by-step workflow, and all 10 core rules (clarity, size limits, naming consistency, incremental testing, error recovery, hallucination control, and more) are documented in **[docs/methodology.md](docs/methodology.md)**.
+
+## Proven in Practice
+
+This isn't a theoretical framework. It was used to build **[RACE v2.0 — AI Rescue Tournament](https://github.com/PyAimind/RACE-AI-Rescue-Tournament-v2)**, a working multi-agent competition system combining Q-Learning and BFS pathfinding. The real Engineer-to-Coder prompts from that project — including a feature addition and a precise bug-fix prompt — are documented in **[docs/examples.md](docs/examples.md)**, each annotated with which methodology rule it demonstrates.
 
 ## From Manual Methodology to Automated System
 
-After successfully applying this methodology manually across multiple projects, a natural question emerged: *What if this entire process could be automated?*
+After successfully applying this methodology manually across projects, a natural question emerged: *What if this entire process could be automated?*
 
-This question led to the development of **MetaForge**, a multi-agent system designed to implement Muscular Prompt Engineering autonomously. MetaForge uses four specialized agents (Supervisor, Engineer, Coder, and Tester) that communicate through structured messages to take a high-level idea and produce a fully tested Python project.
+This question led to the development of **[MetaForge](https://github.com/PyAimind/MetaForge)**, a multi-agent system designed to implement Muscular Prompt Engineering autonomously. MetaForge uses four specialized agents (Supervisor, Engineer, Coder, and Tester) that communicate through structured messages to take a high-level idea and produce a fully tested Python project. Its orchestration layer is complete; connecting it to a real LLM for the Engineer/Coder roles is the next milestone.
 
 MetaForge represents the transition from a manual, human-dependent methodology to a more autonomous system — a step toward making high-quality AI-assisted development more repeatable and scalable.
 
@@ -56,9 +51,13 @@ MetaForge represents the transition from a manual, human-dependent methodology t
 
 Muscular Prompt Engineering was not developed in theory. It emerged from real constraints, repeated failures, and the need to produce reliable software under difficult conditions. It reflects a shift in perspective: instead of asking how to make a single AI model more powerful, we should ask how to make multiple AI agents work together reliably.
 
-The ultimate goal is to move beyond manual coordination and build systems that can maintain this level of discipline with minimal human intervention. MetaForge is the first concrete step in that direction.
-
-> 🔗 **See the methodology in action:** [MetaForge](https://github.com/PyAimind/MetaForge) — a self-organizing AI system that builds software using PromptForge.
-
 This is not the end of the journey. It is the beginning of a new way of building software.
 
+## Contents
+
+- **[docs/methodology.md](docs/methodology.md)** — Roles, workflow, and the 10 core rules
+- **[docs/examples.md](docs/examples.md)** — Real prompts from RACE v2.0, with rule annotations
+
+## License
+
+This project is licensed under CC-BY-4.0 — see the [LICENSE](LICENSE) file for details.
